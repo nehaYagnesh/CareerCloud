@@ -12,6 +12,6 @@ namespace CareerCloud.BusinessLogicLayer
         {
             Code = code;
         }
-        public int Code { get; set; }
+        public int Code { get; private set; }
     }
 }
