@@ -45,5 +45,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidationException.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CareerCloud.DataAccessLayer\CareerCloud.DataAccessLayer.csproj">
+      <Project>{2C5FD1A9-9CC3-4F6C-92CD-D4830166E9A2}</Project>
+      <Name>CareerCloud.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CareerCloud.Pocos\CareerCloud.Pocos.csproj">
+      <Project>{5EF608E7-40E7-4AFA-AFF3-B6CD297DAC30}</Project>
+      <Name>CareerCloud.Pocos</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
