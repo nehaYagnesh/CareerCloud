@@ -13,9 +13,7 @@ namespace CareerCloud.BusinessLogicLayer
     {
         public SecurityRoleLogic(IDataRepository<SecurityRolePoco> repository) : base(repository)
         {
-
         }
-
         public override void Add(SecurityRolePoco[] pocos)
         {
             Verify(pocos);
@@ -31,7 +29,7 @@ namespace CareerCloud.BusinessLogicLayer
         protected override void Verify(SecurityRolePoco[] pocos)
         {
             List<ValidationException> exceptions = new List<ValidationException>();
-            foreach(var poco in pocos)
+            foreach (var poco in pocos)
             {
                 if (string.IsNullOrEmpty(poco.Role))
                 {

@@ -30,11 +30,11 @@ namespace CareerCloud.BusinessLogicLayer
         protected override void Verify(ApplicantResumePoco[] pocos)
         {
             List<ValidationException> exceptions = new List<ValidationException>();
-            foreach(var poco in pocos)
+            foreach (var poco in pocos)
             {
                 if (string.IsNullOrEmpty(poco.Resume))
                 {
-                    exceptions.Add(new ValidationException(113, $"Resume of {poco.Id} cannot be empty"));
+                    exceptions.Add(new ValidationException(113, $"Resume for ApplicantResume of {poco.Id} cannot be empty"));
                 }
             }
 

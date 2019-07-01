@@ -30,19 +30,19 @@ namespace CareerCloud.BusinessLogicLayer
         protected override void Verify(ApplicantProfilePoco[] pocos)
         {
             List<ValidationException> exceptions = new List<ValidationException>();
-            foreach(var poco in pocos)
+            foreach (var poco in pocos)
             {
-                if (poco.CurrentSalary <0)
+                if (poco.CurrentSalary < 0)
                 {
-                    exceptions.Add(new ValidationException(111, $"Current Salary of {poco.Id} cannot be negative"));
+                    exceptions.Add(new ValidationException(111, $"Current Salary for ApplicantProfile of {poco.Id} cannot be negative"));
                 }
-                if (poco.CurrentRate <0)
+                if (poco.CurrentRate < 0)
                 {
-                    exceptions.Add(new ValidationException(112, $"CurrentRate of {poco.Id} cannot be negative"));
+                    exceptions.Add(new ValidationException(112, $"CurrentRate for ApplicantProfile of {poco.Id} cannot be negative"));
                 }
             }
 
-            if(exceptions.Count >0)
+            if (exceptions.Count > 0)
             {
                 throw new AggregateException(exceptions);
             }

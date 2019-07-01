@@ -30,27 +30,27 @@ namespace CareerCloud.BusinessLogicLayer
         protected override void Verify(ApplicantSkillPoco[] pocos)
         {
             List<ValidationException> exceptions = new List<ValidationException>();
-            foreach(var poco in pocos)
+            foreach (var poco in pocos)
             {
-                if(poco.StartMonth > 12)
+                if (poco.StartMonth > 12)
                 {
-                    exceptions.Add(new ValidationException(101, $"Start Date for {poco.Id} cannot be greater than 12"));
+                    exceptions.Add(new ValidationException(101, $"Start Date for ApplicantSkill of {poco.Id} cannot be greater than 12"));
                 }
-                if(poco.EndMonth> 12)
+                if (poco.EndMonth > 12)
                 {
-                    exceptions.Add(new ValidationException(102, $"End Date for {poco.Id} cannot be greater than 12"));
+                    exceptions.Add(new ValidationException(102, $"End Date for ApplicantSkill of {poco.Id} cannot be greater than 12"));
                 }
-                if(poco.StartYear < 1900)
+                if (poco.StartYear < 1900)
                 {
-                    exceptions.Add(new ValidationException(103,$"Start Year for {poco.Id} cannot be less than 1900"));
+                    exceptions.Add(new ValidationException(103, $"Start Year for ApplicantSkill of {poco.Id} cannot be less than 1900"));
                 }
                 if (poco.EndYear < poco.StartYear)
                 {
-                    exceptions.Add(new ValidationException(103, $"End Year for {poco.Id} cannot be less than StartYear"));
+                    exceptions.Add(new ValidationException(104, $"End Year for ApplicantSkill of {poco.Id} cannot be less than StartYear"));
                 }
             }
 
-            if(exceptions.Count > 0)
+            if (exceptions.Count > 0)
             {
                 throw new AggregateException(exceptions);
             }

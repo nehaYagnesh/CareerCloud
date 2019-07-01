@@ -34,7 +34,7 @@ namespace CareerCloud.BusinessLogicLayer
             {
                 if (string.IsNullOrEmpty(poco.Major))
                 {
-                    exceptions.Add(new ValidationException(107, $"Major cannot be null"));
+                    exceptions.Add(new ValidationException(107, $"Major for ApplicantEducation {poco.Id} cannot be null"));
                 }
                 else if (poco.Major.Length < 3)
                 {
@@ -48,13 +48,11 @@ namespace CareerCloud.BusinessLogicLayer
                 {
                     exceptions.Add(new ValidationException(109, $"Completion Date for Applicant Education {poco.Id} cannot be earlier than Start Date"));
                 }
-
-                if (exceptions.Count > 0)
-                {
-                    throw new AggregateException(exceptions);
-                }
             }
-
+            if (exceptions.Count > 0)
+            {
+                throw new AggregateException(exceptions);
+            }
         }
     }
 }

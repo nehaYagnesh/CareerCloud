@@ -31,13 +31,17 @@ namespace CareerCloud.BusinessLogicLayer
             List<ValidationException> exceptions = new List<ValidationException>();
             foreach (var poco in pocos)
             {
-                if ((poco.Major.Length < 2) || (string.IsNullOrEmpty(poco.Major)))
+                if (string.IsNullOrEmpty(poco.Major))
                 {
-                    exceptions.Add(new ValidationException(200, $"Major of {poco.Id} must be at least 2 characters"));
+                    exceptions.Add(new ValidationException(200, $"Major for CompanyJobEducation of {poco.Id} must be at least 2 characters"));
+                }
+                else if (poco.Major.Length < 2)
+                {
+                    exceptions.Add(new ValidationException(200, $"Major for CompanyJobEducation of  {poco.Id} must be at least 2 characters"));
                 }
                 if (poco.Importance < 0)
                 {
-                    exceptions.Add(new ValidationException(201, $"Importance of {poco.Id} cannot be less than 0"));
+                    exceptions.Add(new ValidationException(201, $"Importance for CompanyJobEducation of {poco.Id} cannot be less than 0"));
                 }
             }
 

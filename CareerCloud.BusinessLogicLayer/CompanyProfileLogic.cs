@@ -31,26 +31,34 @@ namespace CareerCloud.BusinessLogicLayer
             {
                 if (string.IsNullOrEmpty(poco.ContactPhone))
                 {
-                    exceptions.Add(new ValidationException(601, $"ContactPhone for {poco.Id} should be provided"));
+                    exceptions.Add(new ValidationException(601, $"ContactPhone for CompanyProfile of {poco.Id} should be provided"));
                 }
                 else
                 {
                     string[] phoneComponents = poco.ContactPhone.Split('-');
                     if (phoneComponents.Length != 3)
                     {
-                        exceptions.Add(new ValidationException(601, $"ContactPhone  for {poco.Id} must correspond to a valid phone number"));
+                        exceptions.Add(new ValidationException(601, $"ContactPhone for CompanyProfile of {poco.Id} must correspond to a valid phone number"));
                     }
                     else if (phoneComponents[0].Length != 3)
                     {
-                        exceptions.Add(new ValidationException(601, $"ContactPhone  for {poco.Id} must correspond to a valid phone number"));
+                        exceptions.Add(new ValidationException(601, $"ContactPhone for CompanyProfile of {poco.Id} must correspond to a valid phone number"));
                     }
                     else if (phoneComponents[1].Length != 3)
                     {
-                        exceptions.Add(new ValidationException(601, $"ContactPhone  for {poco.Id} must correspond to a valid phone number"));
+                        exceptions.Add(new ValidationException(601, $"ContactPhone for CompanyProfile of {poco.Id} must correspond to a valid phone number"));
                     }
                     else if (phoneComponents[2].Length != 4)
                     {
-                        exceptions.Add(new ValidationException(601, $"ContactPhone  for {poco.Id} must correspond to a valid phone number"));
+                        exceptions.Add(new ValidationException(601, $"ContactPhone for CompanyProfile of {poco.Id} must correspond to a valid phone number"));
+                    }
+                }
+                if (!string.IsNullOrEmpty(poco.CompanyWebsite))
+                {
+                    string[] Company_Website = poco.CompanyWebsite.Split('.');
+                    if (!Company_Website[2].Equals("ca") && !Company_Website[2].Equals("biz") && !Company_Website[2].Equals("com"))
+                    {
+                        exceptions.Add(new ValidationException(600, $"Invalid email provided for CompanyProfile of {poco.Id}"));
                     }
                 }
             }

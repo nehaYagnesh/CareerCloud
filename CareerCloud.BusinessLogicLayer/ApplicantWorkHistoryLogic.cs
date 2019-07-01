@@ -12,7 +12,6 @@ namespace CareerCloud.BusinessLogicLayer
     {
         public ApplicantWorkHistoryLogic(IDataRepository<ApplicantWorkHistoryPoco> repository) : base(repository)
         {
-
         }
 
         public override void Add(ApplicantWorkHistoryPoco[] pocos)
@@ -30,11 +29,11 @@ namespace CareerCloud.BusinessLogicLayer
         protected override void Verify(ApplicantWorkHistoryPoco[] pocos)
         {
             List<ValidationException> exceptions = new List<ValidationException>();
-            foreach(var poco in pocos)
+            foreach (var poco in pocos)
             {
-                if(poco.CompanyName.Length > 2)
+                if (poco.CompanyName.Length >= 2)
                 {
-                    exceptions.Add(new ValidationException(105, $"Company Name for {poco.Id} must be greater then 2 characters"));
+                    exceptions.Add(new ValidationException(105, $"Company Name for ApplicantWorkHistory of {poco.Id} must be greater then 2 characters"));
                 }
             }
 

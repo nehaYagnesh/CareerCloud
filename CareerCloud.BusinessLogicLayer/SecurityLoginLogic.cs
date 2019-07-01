@@ -58,57 +58,57 @@ namespace CareerCloud.BusinessLogicLayer
             {
                 if (string.IsNullOrEmpty(poco.Password))
                 {
-                    exceptions.Add(new ValidationException(700, $"Password for SecurityLogin {poco.Id} cannot be null"));
+                    exceptions.Add(new ValidationException(700, $"Password for SecurityLogin of {poco.Id} cannot be null"));
                 }
                 else if (poco.Password.Length < 10)
                 {
-                    exceptions.Add(new ValidationException(700, $"Password for SecurityLogin {poco.Id} must be at least 10 characters."));
+                    exceptions.Add(new ValidationException(700, $"Password for SecurityLogin of {poco.Id} must be at least 10 characters."));
                 }
                 else if (!requiredExtendedPasswordChars.Any(t => poco.Password.Contains(t)))
                 {
-                    exceptions.Add(new ValidationException(701, $"Password for SecurityLogin {poco.Id} must contain an extended character of '$', '*', '#', '_' or '@' ."));
+                    exceptions.Add(new ValidationException(701, $"Password for SecurityLogin of {poco.Id} must contain an extended character of '$', '*', '#', '_' or '@' ."));
                 }
 
                 if (string.IsNullOrEmpty(poco.PhoneNumber))
                 {
-                    exceptions.Add(new ValidationException(702, $"PhoneNumber for SecurityLogin {poco.Id} is required"));
+                    exceptions.Add(new ValidationException(702, $"PhoneNumber for SecurityLogin of {poco.Id} is required"));
                 }
                 else
                 {
                     string[] phoneComponents = poco.PhoneNumber.Split('-');
                     if (phoneComponents.Length != 3)
                     {
-                        exceptions.Add(new ValidationException(703, $"PhoneNumber for SecurityLogin {poco.Id} is not in the required format."));
+                        exceptions.Add(new ValidationException(703, $"PhoneNumber for SecurityLogin of {poco.Id} is not in the required format."));
                     }
                     else
                     {
                         if (phoneComponents[0].Length != 3)
                         {
-                            exceptions.Add(new ValidationException(703, $"PhoneNumber for SecurityLogin {poco.Id} is not in the required format."));
+                            exceptions.Add(new ValidationException(703, $"PhoneNumber for SecurityLogin of {poco.Id} is not in the required format."));
                         }
                         else if (phoneComponents[1].Length != 3)
                         {
-                            exceptions.Add(new ValidationException(703, $"PhoneNumber for SecurityLogin {poco.Id} is not in the required format."));
+                            exceptions.Add(new ValidationException(703, $"PhoneNumber for SecurityLogin of {poco.Id} is not in the required format."));
                         }
                         else if (phoneComponents[2].Length != 4)
                         {
-                            exceptions.Add(new ValidationException(703, $"PhoneNumber for SecurityLogin {poco.Id} is not in the required format."));
+                            exceptions.Add(new ValidationException(703, $"PhoneNumber for SecurityLogin of {poco.Id} is not in the required format."));
                         }
                     }
                 }
 
                 if (string.IsNullOrEmpty(poco.EmailAddress))
                 {
-                    exceptions.Add(new ValidationException(704, "EmailAddress for SecurityLogin {poco.Id} is not a valid email address format."));
+                    exceptions.Add(new ValidationException(704, $"EmailAddress for SecurityLogin {poco.Id} is not a valid email address format."));
                 }
                 else if (!Regex.IsMatch(poco.EmailAddress, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase))
                 {
-                    exceptions.Add(new ValidationException(704, "EmailAddress for SecurityLogin {poco.Id} is not a valid email address format."));
+                    exceptions.Add(new ValidationException(704, $"EmailAddress for SecurityLogin {poco.Id} is not a valid email address format."));
                 }
 
                 if (string.IsNullOrEmpty(poco.FullName))
                 {
-                    exceptions.Add(new ValidationException(705, "FullName for SecurityLogin {poco.Id} is required."));
+                    exceptions.Add(new ValidationException(705, $"FullName for SecurityLogin {poco.Id} is required."));
                 }
 
             }
@@ -172,7 +172,7 @@ namespace CareerCloud.BusinessLogicLayer
 
             byte[] hashWithSaltBytes = Convert.FromBase64String(hashValue);
             if (hashWithSaltBytes.Length < hashSizeInBytes)
-                return false; 
+                return false;
             byte[] saltBytes = new byte[hashWithSaltBytes.Length - hashSizeInBytes];
             for (int i = 0; i < saltBytes.Length; i++)
                 saltBytes[i] = hashWithSaltBytes[hashSizeInBytes + i];
