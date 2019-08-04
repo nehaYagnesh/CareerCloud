@@ -12,7 +12,6 @@ C:\Users\nlimb\source\repos\CareerCloud\CareerCloud.UnitTests.Assignment2\bin\De
 C:\Users\nlimb\source\repos\CareerCloud\CareerCloud.UnitTests.Assignment2\bin\Debug\Faker.dll
 C:\Users\nlimb\source\repos\CareerCloud\CareerCloud.UnitTests.Assignment2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\nlimb\source\repos\CareerCloud\CareerCloud.UnitTests.Assignment2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
-C:\Users\nlimb\source\repos\CareerCloud\CareerCloud.UnitTests.Assignment2\bin\Debug\Newtonsoft.Json.dll
 C:\Users\nlimb\source\repos\CareerCloud\CareerCloud.UnitTests.Assignment2\bin\Debug\CareerCloud.ADODataAccessLayer.pdb
 C:\Users\nlimb\source\repos\CareerCloud\CareerCloud.UnitTests.Assignment2\bin\Debug\CareerCloud.DataAccessLayer.pdb
 C:\Users\nlimb\source\repos\CareerCloud\CareerCloud.UnitTests.Assignment2\bin\Debug\CareerCloud.Pocos.pdb
